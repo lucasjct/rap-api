@@ -1,0 +1,20 @@
+meta {
+  name: Create a artist
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/artist
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Racionais MC's",
+    "album": "Sobrevivendo no Inferno",
+    "released": "1997-12-20",
+    "country": "Brazil"
+  }
+}
