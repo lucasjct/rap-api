@@ -31,7 +31,7 @@ func CreateNewArtist(c *gin.Context) {
 		return
 	}
 	database.DB.Create(&artist)
-	c.JSON(http.StatusOK, artist)
+	c.JSON(http.StatusCreated, artist)
 }
 
 // search by specifc ID related to some artist
@@ -69,14 +69,7 @@ func DeleteArtist(c *gin.Context) {
 	var artist models.Artist
 	id := c.Params.ByName("id")
 	database.DB.Delete(&artist, id)
-	if artist.ID == 0 {
-		c.JSON(http.StatusNotFound, gin.H{
-			"Delete": "The artist has been deleted.",
-		})
-		return
-	}
-
-	c.JSON(http.StatusOK, artist)
+	c.JSON(http.StatusOK, gin.H{"Delete": "The artist has been deleted."})
 
 }
 

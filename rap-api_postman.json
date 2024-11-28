@@ -1,0 +1,224 @@
+{
+  "info": {
+    "name": "rap-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create a artist",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": null,
+        "description": "",
+        "url": {
+          "raw": "{{baseUrl}}",
+          "protocol": "",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Racionais MC's\",\n  \"album\": \"Sobrevivendo no Inferno\",\n  \"released\": \"1997-12-20\",\n  \"country\": \"Brazil\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Delete specific artist",
+      "event": [],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "auth": null,
+        "description": "",
+        "url": {
+          "raw": "{{baseUrl}}/4",
+          "protocol": "",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "4"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Racionais MC's\",\n  \"album\": \"Sobrevivendo no Inferno\",\n  \"released\": \"1997-12-20\",\n  \"country\": \"Brazil\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Get all artists",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": null,
+        "description": "",
+        "url": {
+          "raw": "{{baseUrl}}",
+          "protocol": "",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Racionais MC's\",\n  \"album\": \"Sobrevivendo no Inferno\",\n  \"released\": \"1997-12-20\",\n  \"country\": \"Brazil\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Get artists by name",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": null,
+        "description": "",
+        "url": {
+          "raw": "{{baseUrl}}/name/Racionais",
+          "protocol": "",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "name",
+            "Racionais"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Racionais MC's\",\n  \"album\": \"Sobrevivendo no Inferno\",\n  \"released\": \"1997-12-20\",\n  \"country\": \"Brazil\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Get specific artist",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": null,
+        "description": "",
+        "url": {
+          "raw": "{{baseUrl}}/8",
+          "protocol": "",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "8"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Racionais MC's\",\n  \"album\": \"Sobrevivendo no Inferno\",\n  \"released\": \"1997-12-20\",\n  \"country\": \"Brazil\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Ping",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": null,
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8080/ping",
+          "protocol": "http",
+          "host": [
+            "localhost:8080"
+          ],
+          "path": [
+            "ping"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "Update specific artist",
+      "event": [],
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "auth": null,
+        "description": "",
+        "url": {
+          "raw": "{{baseUrl}}/27",
+          "protocol": "",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "27"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"country\": \"Brasil\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "bruno",
+      "event": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}

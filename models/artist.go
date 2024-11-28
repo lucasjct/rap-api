@@ -6,7 +6,7 @@ import (
 )
 
 type Artist struct {
-	gorm.Model        // with property gorm.Model automatically will be included: id, createdAt, updatedAt, deletedAt.
+	gorm.Model        // using property gorm.Model automatically will be included: id, createdAt, updatedAt, deletedAt.
 	Name       string `json:"name" validate:"required"`
 	Album      string `json:"album"`
 	Released   string `json:"released"`
