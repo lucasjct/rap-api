@@ -15,9 +15,10 @@ paths:
     post:
       consumes:
       - application/json
-      description: This endpoint creates a new artist
+      description: This endpoint allows the creation of a new artist by providing
+        artist details in JSON format.
       parameters:
-      - description: Artist Information
+      - description: Artist details
         in: body
         name: artist
         required: true
@@ -33,41 +34,12 @@ paths:
       summary: Create a new artist
       tags:
       - Artists
-  /artist/artistID:
-    get:
-      parameters:
-      - description: Artist ID
-        in: path
-        name: '"artistID"'
-        required: true
-        type: string
-      responses:
-        "200":
-          description: OK
-      summary: List an artist by ID
-      tags:
-      - Artists
-    patch:
-      consumes:
-      - application/json
-      parameters:
-      - description: Artist ID
-        in: path
-        name: '"artistID"'
-        required: true
-        type: integer
-      responses:
-        "200":
-          description: OK
-      summary: Update a specific artist
-      tags:
-      - Artists
-  /artist/artistName:
+  /artist/{id}:
     delete:
       parameters:
       - description: Artist ID
         in: path
-        name: '"artistID"'
+        name: id
         required: true
         type: integer
       responses:
@@ -80,12 +52,53 @@ paths:
       parameters:
       - description: Artist ID
         in: path
-        name: '"artistName"'
+        name: id
         required: true
-        type: string
+        type: integer
       responses:
         "200":
           description: OK
+      summary: List an artist by ID
+      tags:
+      - Artists
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Artist ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Artist Updated Successfully
+          schema:
+            $ref: '#/definitions/models.Artist'
+      summary: Update a specific artist
+      tags:
+      - Artists
+  /artist/{name}:
+    get:
+      parameters:
+      - description: Artist Name
+        in: path
+        name: name
+        required: true
+        type: string
+      - description: Artist details
+        in: body
+        name: artist
+        required: true
+        schema:
+          $ref: '#/definitions/models.Artist'
+      responses:
+        "200":
+          description: Artist object
+          schema:
+            $ref: '#/definitions/models.Artist'
       summary: Search artist by name
       tags:
       - Artists

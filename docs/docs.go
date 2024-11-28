@@ -28,7 +28,7 @@ const docTemplate = `{
                 }
             },
             "post": {
-                "description": "This endpoint creates a new artist",
+                "description": "This endpoint allows the creation of a new artist by providing artist details in JSON format.",
                 "consumes": [
                     "application/json"
                 ],
@@ -41,7 +41,7 @@ const docTemplate = `{
                 "summary": "Create a new artist",
                 "parameters": [
                     {
-                        "description": "Artist Information",
+                        "description": "Artist details",
                         "name": "artist",
                         "in": "body",
                         "required": true,
@@ -60,7 +60,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/artist/artistID": {
+        "/artist/{id}": {
             "get": {
                 "tags": [
                     "Artists"
@@ -68,54 +68,9 @@ const docTemplate = `{
                 "summary": "List an artist by ID",
                 "parameters": [
                     {
-                        "type": "string",
-                        "description": "Artist ID",
-                        "name": "\"artistID\"",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            },
-            "patch": {
-                "consumes": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Artists"
-                ],
-                "summary": "Update a specific artist",
-                "parameters": [
-                    {
                         "type": "integer",
                         "description": "Artist ID",
-                        "name": "\"artistID\"",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/artist/artistName": {
-            "get": {
-                "tags": [
-                    "Artists"
-                ],
-                "summary": "Search artist by name",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Artist ID",
-                        "name": "\"artistName\"",
+                        "name": "id",
                         "in": "path",
                         "required": true
                     }
@@ -135,7 +90,7 @@ const docTemplate = `{
                     {
                         "type": "integer",
                         "description": "Artist ID",
-                        "name": "\"artistID\"",
+                        "name": "id",
                         "in": "path",
                         "required": true
                     }
@@ -143,6 +98,69 @@ const docTemplate = `{
                 "responses": {
                     "200": {
                         "description": "OK"
+                    }
+                }
+            },
+            "patch": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Artists"
+                ],
+                "summary": "Update a specific artist",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Artist ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Artist Updated Successfully",
+                        "schema": {
+                            "$ref": "#/definitions/models.Artist"
+                        }
+                    }
+                }
+            }
+        },
+        "/artist/{name}": {
+            "get": {
+                "tags": [
+                    "Artists"
+                ],
+                "summary": "Search artist by name",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Artist Name",
+                        "name": "name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Artist details",
+                        "name": "artist",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Artist"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Artist object",
+                        "schema": {
+                            "$ref": "#/definitions/models.Artist"
+                        }
                     }
                 }
             }

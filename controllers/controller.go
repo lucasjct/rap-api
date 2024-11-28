@@ -9,10 +9,11 @@ import (
 )
 
 // list all artist
-// @Summary List all artist
-// @Success	200
-// @Router		/artist [get]
-// @Tags Artists
+//
+//	@Summary	List all artist
+//	@Success	200
+//	@Router		/artist [get]
+//	@Tags		Artists
 func ShowAllArtist(c *gin.Context) {
 	var artist []models.Artist
 	database.DB.Find(&artist)
@@ -20,14 +21,16 @@ func ShowAllArtist(c *gin.Context) {
 
 }
 
-// create a new artist
-// @Summary Create a new artist
-// @Description This endpoint creates a new artist
-// @Tags Artists
-// @Accept json
-// @Produce json
-// @Success 201 {object} models.Artist "Artist Created Successfully"
-// @Router /artist [post]
+// Create a new artist
+//
+//	@Summary		Create a new artist
+//	@Description	This endpoint allows the creation of a new artist by providing artist details in JSON format.
+//	@Tags			Artists
+//	@Accept			json
+//	@Produce		json
+//	@Param			artist	body		models.Artist	true	"Artist details"
+//	@Success		201		{object}	models.Artist	"Artist Created Successfully"
+//	@Router			/artist [post]
 func CreateNewArtist(c *gin.Context) {
 	var artist models.Artist
 	if err := c.ShouldBindJSON(&artist); err != nil {
@@ -46,11 +49,12 @@ func CreateNewArtist(c *gin.Context) {
 }
 
 // search by specifc ID related to some artist
-// @Summary List an artist by ID
-// @Param		artistID	path	int	true	"Artist ID"
-// @Tags Artists
-// @Success	200
-// @Router		/artist    [get]
+//
+//	@Summary	List an artist by ID
+//	@Param		id	path	integer	true	"Artist ID"
+//	@Tags		Artists
+//	@Success	200
+//	@Router		/artist/{id}    [get]s
 func SearchArtistById(c *gin.Context) {
 	var artist models.Artist
 	id := c.Params.ByName("id")
@@ -67,11 +71,13 @@ func SearchArtistById(c *gin.Context) {
 }
 
 // search artist by name
-// @Summary Search artist by name
-// @Param		artistName	path	string	true	"Artist ID"
-// @Success	200
-// @Tags Artists
-// @Router		/artist   [get]
+//
+//	@Summary	Search artist by name
+//	@Param		name	path		string			true	"Artist Name"
+//	@Param	    artist	body		models.Artist	true	"Artist details"
+//	@Success	200		{object}	models.Artist	"Artist object"
+//	@Tags		Artists
+//	@Router		/artist/{name}   [get]
 func SearchArtistByName(c *gin.Context) {
 	var artist models.Artist
 	name := c.Param("name")
@@ -87,26 +93,27 @@ func SearchArtistByName(c *gin.Context) {
 
 // delete a specific artist
 
-// @Param		artistID	path	int 	true	"Artist ID"
-// @Summary 	 Delete a specific artist
-// @Tags Artists
+// @Param		id	path	integer	true	"Artist ID"
+// @Summary	Delete a specific artist
+// @Tags		Artists
 // @Success	200
-// @Router		/artist   [delete]
+// @Router		/artist/{id}   [delete]
 func DeleteArtist(c *gin.Context) {
 	var artist models.Artist
 	id := c.Params.ByName("id")
 	database.DB.Delete(&artist, id)
 	c.JSON(http.StatusOK, gin.H{"Delete": "The artist has been deleted."})
-
 }
 
 // update a specific artist
-// @Summary 	 Update a specific artist
-// @Param		artistID	path	int	true	"Artist ID"
-// @Tags Artists
-// @Success	200
-// @Router		/artist/artistID [patch]
-// @Accept		json
+//
+//	@Summary	Update a specific artist
+//	@Param		id	path	integer	true	"Artist ID"
+//	@Tags		Artists
+//	@Produce	json
+//	@Success	200	{object}	models.Artist	"Artist Updated Successfully"
+//	@Router		/artist/{id}   [patch]
+//	@Accept		json
 func UpdateArtist(c *gin.Context) {
 	var artist models.Artist
 	id := c.Params.ByName("id")
@@ -129,14 +136,15 @@ func UpdateArtist(c *gin.Context) {
 }
 
 // test api response
-// @Summary  Test API connection
-// @Schemes
-// @Description do ping
-// @Tags Test API connection
-// @Accept json
-// @Produce json
-// @Router /ping [get]
-// @Success 200 {string} pong
+//
+//	@Summary	Test API connection
+//	@Schemes
+//	@Description	do ping
+//	@Tags			Test API connection
+//	@Accept			json
+//	@Produce		json
+//	@Router			/ping [get]
+//	@Success		200	{string}	pong
 func Ping(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"message": "pong.",
