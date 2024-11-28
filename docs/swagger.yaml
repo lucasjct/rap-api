@@ -1,0 +1,107 @@
+definitions:
+  models.Artist:
+    type: object
+info:
+  contact: {}
+paths:
+  /artist:
+    get:
+      responses:
+        "200":
+          description: OK
+      summary: List all artist
+      tags:
+      - Artists
+    post:
+      consumes:
+      - application/json
+      description: This endpoint creates a new artist
+      parameters:
+      - description: Artist Information
+        in: body
+        name: artist
+        required: true
+        schema:
+          $ref: '#/definitions/models.Artist'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Artist Created Successfully
+          schema:
+            $ref: '#/definitions/models.Artist'
+      summary: Create a new artist
+      tags:
+      - Artists
+  /artist/artistID:
+    get:
+      parameters:
+      - description: Artist ID
+        in: path
+        name: '"artistID"'
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+      summary: List an artist by ID
+      tags:
+      - Artists
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Artist ID
+        in: path
+        name: '"artistID"'
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+      summary: Update a specific artist
+      tags:
+      - Artists
+  /artist/artistName:
+    delete:
+      parameters:
+      - description: Artist ID
+        in: path
+        name: '"artistID"'
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+      summary: Delete a specific artist
+      tags:
+      - Artists
+    get:
+      parameters:
+      - description: Artist ID
+        in: path
+        name: '"artistName"'
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+      summary: Search artist by name
+      tags:
+      - Artists
+  /ping:
+    get:
+      consumes:
+      - application/json
+      description: do ping
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Test API connection
+      tags:
+      - Test API connection
+swagger: "2.0"
