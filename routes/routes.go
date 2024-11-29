@@ -11,14 +11,13 @@ import (
 func HandleRequest() {
 	r := gin.Default()
 	r.GET("/artist", controllers.ShowAllArtist)
-	r.GET("/artist/:id", controllers.SearchArtistById)
-	r.GET("/artist/name/:name", controllers.SearchArtistByName)
+	r.GET("/artist/specific", controllers.SearchArtistById)
+	r.GET("/artist/name", controllers.SearchArtistByName)
 	r.GET("/ping", controllers.Ping)
-	r.DELETE("/artist/:id", controllers.DeleteArtist)
+	r.DELETE("/artist", controllers.DeleteArtist)
 	r.POST("/artist", controllers.CreateNewArtist)
-	r.PATCH("/artist/:id", controllers.UpdateArtist)
+	r.PATCH("/artist", controllers.UpdateArtist)
 	r.NoRoute(controllers.RouteNotFound) // use it when the return will be not found
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	r.Run()
-
 }

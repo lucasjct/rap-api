@@ -47,6 +47,14 @@ const docTemplate = `{
                         "schema": {
                             "$ref": "#/definitions/models.Artist"
                         }
+                    },
+                    {
+                        "type": "integer",
+                        "default": 1,
+                        "example": 1,
+                        "description": "Page number",
+                        "name": "page",
+                        "in": "query"
                     }
                 ],
                 "responses": {
@@ -55,28 +63,6 @@ const docTemplate = `{
                         "schema": {
                             "$ref": "#/definitions/models.Artist"
                         }
-                    }
-                }
-            }
-        },
-        "/artist/{id}": {
-            "get": {
-                "tags": [
-                    "Artists"
-                ],
-                "summary": "List an artist by ID",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "description": "Artist ID",
-                        "name": "id",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
                     }
                 }
             },
@@ -88,9 +74,9 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "Artist ID",
+                        "description": "ID of the artist",
                         "name": "id",
-                        "in": "path",
+                        "in": "query",
                         "required": true
                     }
                 ],
@@ -114,9 +100,9 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "Artist ID",
+                        "description": "ID of the artist",
                         "name": "id",
-                        "in": "path",
+                        "in": "query",
                         "required": true
                     },
                     {
@@ -139,7 +125,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/artist/{name}": {
+        "/artist/name": {
             "get": {
                 "tags": [
                     "Artists"
@@ -148,9 +134,32 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "Artist Name",
+                        "example": "\"Emicida\"",
+                        "description": "Name of the artist",
                         "name": "name",
-                        "in": "path",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/artist/specific": {
+            "get": {
+                "tags": [
+                    "Artists"
+                ],
+                "summary": "List an artist by ID",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "ID of the artist",
+                        "name": "id",
+                        "in": "query",
                         "required": true
                     }
                 ],

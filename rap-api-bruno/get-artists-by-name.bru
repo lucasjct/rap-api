@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: {{baseUrl}}/name/Racionais
+  url: {{baseUrl}}/name?name=Emicida
   body: json
   auth: none
+}
+
+params:query {
+  name: Emicida
 }
 
 body:json {

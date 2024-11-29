@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: {{baseUrl}}
+  url: {{baseUrl}}/artists?page=1
   body: json
   auth: none
+}
+
+params:query {
+  page: 1
 }
 
 body:json {

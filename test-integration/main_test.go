@@ -48,7 +48,8 @@ func TestCreatArtist(t *testing.T) {
 func TestListArtistByID(t *testing.T) {
 	e := HTTPexpectinstance(t)
 	content := "Racionais"
-	test := e.GET("/artist/", artistID).
+	test := e.GET("/artist").
+		WithQuery("id", artistID).
 		Expect().
 		Status(http.StatusOK)
 
@@ -59,7 +60,8 @@ func TestListArtistByID(t *testing.T) {
 func TestListAllArtists(t *testing.T) {
 	e := HTTPexpectinstance(t)
 	content := "Racionais"
-	test := e.GET("/artist/").
+	test := e.GET("/artist").
+		WithQuery("page", 1).
 		Expect().
 		Status(http.StatusOK)
 
@@ -70,7 +72,8 @@ func TestListAllArtists(t *testing.T) {
 func TestListArtistsByName(t *testing.T) {
 	e := HTTPexpectinstance(t)
 	content := "Racionais"
-	test := e.GET("/artist/", content).
+	test := e.GET("/artist").
+		WithQuery("id", content).
 		Expect().
 		Status(http.StatusOK)
 
@@ -85,8 +88,8 @@ func TestUpdateArtists(t *testing.T) {
 	payload := map[string]interface{}{
 		"country": content,
 	}
-	test := e.PATCH("/artist/{artistID}").
-		WithPath("artistID", artistID).
+	test := e.PATCH("/artist").
+		WithQuery("id", artistID).
 		WithJSON(payload).
 		Expect().
 		Status(http.StatusOK)
@@ -98,8 +101,8 @@ func TestUpdateArtists(t *testing.T) {
 func TestDeleteArtist(t *testing.T) {
 	e := HTTPexpectinstance(t)
 
-	test := e.DELETE("/artist/{artistID}").
-		WithPath("artistID", artistID).
+	test := e.DELETE("/artist").
+		WithQuery("id", artistID).
 		Expect().
 		Status(http.StatusOK)
 	test.Body().Contains("The artist has been deleted.")

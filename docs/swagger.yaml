@@ -16,38 +16,10 @@ info:
   contact: {}
 paths:
   /artist:
-    get:
-      responses:
-        "200":
-          description: OK
-      summary: List all artist
-      tags:
-      - Artists
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: Artist details
-        in: body
-        name: artist
-        required: true
-        schema:
-          $ref: '#/definitions/models.Artist'
-      produces:
-      - application/json
-      responses:
-        "201":
-          description: Artist Created Successfully
-          schema:
-            $ref: '#/definitions/models.Artist'
-      summary: Create a new artist
-      tags:
-      - Artists
-  /artist/{id}:
     delete:
       parameters:
-      - description: Artist ID
-        in: path
+      - description: ID of the artist
+        in: query
         name: id
         required: true
         type: integer
@@ -58,24 +30,18 @@ paths:
       tags:
       - Artists
     get:
-      parameters:
-      - description: Artist ID
-        in: path
-        name: id
-        required: true
-        type: integer
       responses:
         "200":
           description: OK
-      summary: List an artist by ID
+      summary: List all artist
       tags:
       - Artists
     patch:
       consumes:
       - application/json
       parameters:
-      - description: Artist ID
-        in: path
+      - description: ID of the artist
+        in: query
         name: id
         required: true
         type: integer
@@ -95,11 +61,38 @@ paths:
       summary: Update a specific artist
       tags:
       - Artists
-  /artist/{name}:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Artist details
+        in: body
+        name: artist
+        required: true
+        schema:
+          $ref: '#/definitions/models.Artist'
+      - default: 1
+        description: Page number
+        example: 1
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Artist Created Successfully
+          schema:
+            $ref: '#/definitions/models.Artist'
+      summary: Create a new artist
+      tags:
+      - Artists
+  /artist/name:
     get:
       parameters:
-      - description: Artist Name
-        in: path
+      - description: Name of the artist
+        example: '"Emicida"'
+        in: query
         name: name
         required: true
         type: string
@@ -107,6 +100,20 @@ paths:
         "200":
           description: OK
       summary: Search artist by name
+      tags:
+      - Artists
+  /artist/specific:
+    get:
+      parameters:
+      - description: ID of the artist
+        in: query
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+      summary: List an artist by ID
       tags:
       - Artists
   /ping:

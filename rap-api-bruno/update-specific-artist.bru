@@ -5,13 +5,17 @@ meta {
 }
 
 patch {
-  url: {{baseUrl}}/27
+  url: {{baseUrl}}?id=26
   body: json
   auth: none
 }
 
+params:query {
+  id: 26
+}
+
 body:json {
   {
-    "country": "Brasil"
+    "country": "USA"
   }
 }

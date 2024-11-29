@@ -36,6 +36,14 @@
                         "schema": {
                             "$ref": "#/definitions/models.Artist"
                         }
+                    },
+                    {
+                        "type": "integer",
+                        "default": 1,
+                        "example": 1,
+                        "description": "Page number",
+                        "name": "page",
+                        "in": "query"
                     }
                 ],
                 "responses": {
@@ -44,28 +52,6 @@
                         "schema": {
                             "$ref": "#/definitions/models.Artist"
                         }
-                    }
-                }
-            }
-        },
-        "/artist/{id}": {
-            "get": {
-                "tags": [
-                    "Artists"
-                ],
-                "summary": "List an artist by ID",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "description": "Artist ID",
-                        "name": "id",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
                     }
                 }
             },
@@ -77,9 +63,9 @@
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "Artist ID",
+                        "description": "ID of the artist",
                         "name": "id",
-                        "in": "path",
+                        "in": "query",
                         "required": true
                     }
                 ],
@@ -103,9 +89,9 @@
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "Artist ID",
+                        "description": "ID of the artist",
                         "name": "id",
-                        "in": "path",
+                        "in": "query",
                         "required": true
                     },
                     {
@@ -128,7 +114,7 @@
                 }
             }
         },
-        "/artist/{name}": {
+        "/artist/name": {
             "get": {
                 "tags": [
                     "Artists"
@@ -137,9 +123,32 @@
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "Artist Name",
+                        "example": "\"Emicida\"",
+                        "description": "Name of the artist",
                         "name": "name",
-                        "in": "path",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/artist/specific": {
+            "get": {
+                "tags": [
+                    "Artists"
+                ],
+                "summary": "List an artist by ID",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "ID of the artist",
+                        "name": "id",
+                        "in": "query",
                         "required": true
                     }
                 ],
