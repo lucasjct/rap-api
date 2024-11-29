@@ -28,7 +28,6 @@ const docTemplate = `{
                 }
             },
             "post": {
-                "description": "This endpoint allows the creation of a new artist by providing artist details in JSON format.",
                 "consumes": [
                     "application/json"
                 ],
@@ -119,11 +118,20 @@ const docTemplate = `{
                         "name": "id",
                         "in": "path",
                         "required": true
+                    },
+                    {
+                        "description": "Artist details",
+                        "name": "artist",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Artist"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Artist Updated Successfully",
+                        "description": "Artist updated successfully",
                         "schema": {
                             "$ref": "#/definitions/models.Artist"
                         }
@@ -144,23 +152,11 @@ const docTemplate = `{
                         "name": "name",
                         "in": "path",
                         "required": true
-                    },
-                    {
-                        "description": "Artist details",
-                        "name": "artist",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.Artist"
-                        }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Artist object",
-                        "schema": {
-                            "$ref": "#/definitions/models.Artist"
-                        }
+                        "description": "OK"
                     }
                 }
             }
@@ -191,7 +187,24 @@ const docTemplate = `{
     },
     "definitions": {
         "models.Artist": {
-            "type": "object"
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "album": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "released": {
+                    "type": "string"
+                }
+            }
         }
     }
 }`

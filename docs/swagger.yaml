@@ -1,5 +1,16 @@
 definitions:
   models.Artist:
+    properties:
+      album:
+        type: string
+      country:
+        type: string
+      name:
+        type: string
+      released:
+        type: string
+    required:
+    - name
     type: object
 info:
   contact: {}
@@ -15,8 +26,6 @@ paths:
     post:
       consumes:
       - application/json
-      description: This endpoint allows the creation of a new artist by providing
-        artist details in JSON format.
       parameters:
       - description: Artist details
         in: body
@@ -70,11 +79,17 @@ paths:
         name: id
         required: true
         type: integer
+      - description: Artist details
+        in: body
+        name: artist
+        required: true
+        schema:
+          $ref: '#/definitions/models.Artist'
       produces:
       - application/json
       responses:
         "200":
-          description: Artist Updated Successfully
+          description: Artist updated successfully
           schema:
             $ref: '#/definitions/models.Artist'
       summary: Update a specific artist
@@ -88,17 +103,9 @@ paths:
         name: name
         required: true
         type: string
-      - description: Artist details
-        in: body
-        name: artist
-        required: true
-        schema:
-          $ref: '#/definitions/models.Artist'
       responses:
         "200":
-          description: Artist object
-          schema:
-            $ref: '#/definitions/models.Artist'
+          description: OK
       summary: Search artist by name
       tags:
       - Artists

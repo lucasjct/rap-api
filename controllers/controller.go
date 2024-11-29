@@ -23,14 +23,13 @@ func ShowAllArtist(c *gin.Context) {
 
 // Create a new artist
 //
-//	@Summary		Create a new artist
-//	@Description	This endpoint allows the creation of a new artist by providing artist details in JSON format.
-//	@Tags			Artists
-//	@Accept			json
-//	@Produce		json
-//	@Param			artist	body		models.Artist	true	"Artist details"
-//	@Success		201		{object}	models.Artist	"Artist Created Successfully"
-//	@Router			/artist [post]
+// @Summary      Create a new artist
+// @Tags         Artists
+// @Accept       json
+// @Produce      json
+// @Param        artist  body      models.Artist  true  "Artist details"
+// @Success      201     {object}  models.Artist  "Artist Created Successfully"
+// @Router       /artist [post]
 func CreateNewArtist(c *gin.Context) {
 	var artist models.Artist
 	if err := c.ShouldBindJSON(&artist); err != nil {
@@ -54,7 +53,7 @@ func CreateNewArtist(c *gin.Context) {
 //	@Param		id	path	integer	true	"Artist ID"
 //	@Tags		Artists
 //	@Success	200
-//	@Router		/artist/{id}    [get]s
+//	@Router		/artist/{id}    [get]
 func SearchArtistById(c *gin.Context) {
 	var artist models.Artist
 	id := c.Params.ByName("id")
@@ -74,8 +73,7 @@ func SearchArtistById(c *gin.Context) {
 //
 //	@Summary	Search artist by name
 //	@Param		name	path		string			true	"Artist Name"
-//	@Param	    artist	body		models.Artist	true	"Artist details"
-//	@Success	200		{object}	models.Artist	"Artist object"
+//	@Success	200
 //	@Tags		Artists
 //	@Router		/artist/{name}   [get]
 func SearchArtistByName(c *gin.Context) {
@@ -105,15 +103,16 @@ func DeleteArtist(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"Delete": "The artist has been deleted."})
 }
 
-// update a specific artist
+// Update a specific artist
 //
-//	@Summary	Update a specific artist
-//	@Param		id	path	integer	true	"Artist ID"
-//	@Tags		Artists
-//	@Produce	json
-//	@Success	200	{object}	models.Artist	"Artist Updated Successfully"
-//	@Router		/artist/{id}   [patch]
-//	@Accept		json
+// @Summary      Update a specific artist
+// @Tags         Artists
+// @Accept       json
+// @Produce      json
+// @Param        id      path      integer           true  "Artist ID"
+// @Param	     artist	 body	   models.Artist	 true	"Artist details"
+// @Success      200     {object}  models.Artist     "Artist updated successfully"
+// @Router       /artist/{id} [patch]
 func UpdateArtist(c *gin.Context) {
 	var artist models.Artist
 	id := c.Params.ByName("id")
