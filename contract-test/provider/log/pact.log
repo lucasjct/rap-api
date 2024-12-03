@@ -1,0 +1,25 @@
+# Logfile created on 2024-12-03 00:51:37 -0300 by logger.rb/v1.6.0
+I, [2024-12-03T01:04:35.710530 #1420472]  INFO -- : Running example 'Verifying a pact between Sample consumer and Sample provider Given Match the response body A get request with GET /artist/specific?id=9 returns a response which has status code 200'
+I, [2024-12-03T01:04:35.710723 #1420472]  INFO -- : Sending GET request to path: "/artist/specific?id=9" with headers: {"CONTENT_TYPE"=>"application/json; charset=utf-8", "HTTP_X_PACT_ORIGINAL_HEADER_NAMES"=>"Content-Type", "X_PACT_PROVIDER_STATES"=>[{"name"=>"Match the response body"}]}, see debug logs for body
+D, [2024-12-03T01:04:35.710744 #1420472] DEBUG -- : body :
+I, [2024-12-03T01:04:35.719718 #1420472]  INFO -- : Received response with status: 500, headers: {"Content-Length"=>"0", "Date"=>"Tue, 03 Dec 2024 04:04:35 GMT"}, see debug logs for body
+D, [2024-12-03T01:04:35.719769 #1420472] DEBUG -- : body: 
+W, [2024-12-03T01:04:35.722530 #1420472]  WARN -- : No content type found, performing text diff on body
+I, [2024-12-03T01:04:35.724216 #1420472]  INFO -- : Running example 'Verifying a pact between Sample consumer and Sample provider Given Error message A GET invalid request with GET /artist/specific?id=9999 returns a response which has status code 404'
+I, [2024-12-03T01:04:35.724404 #1420472]  INFO -- : Sending GET request to path: "/artist/specific?id=9999" with headers: {"CONTENT_TYPE"=>"application/json; charset=utf-8", "HTTP_X_PACT_ORIGINAL_HEADER_NAMES"=>"Content-Type", "X_PACT_PROVIDER_STATES"=>[{"name"=>"Error message"}]}, see debug logs for body
+D, [2024-12-03T01:04:35.724441 #1420472] DEBUG -- : body :
+I, [2024-12-03T01:04:35.727185 #1420472]  INFO -- : Received response with status: 500, headers: {"Content-Length"=>"0", "Date"=>"Tue, 03 Dec 2024 04:04:35 GMT"}, see debug logs for body
+D, [2024-12-03T01:04:35.727235 #1420472] DEBUG -- : body: 
+W, [2024-12-03T01:04:35.727711 #1420472]  WARN -- : No content type found, performing text diff on body
+I, [2024-12-03T01:07:08.293306 #1423119]  INFO -- : Running example 'Verifying a pact between Sample consumer and Sample provider Given Match the response body A get request with GET /artist/specific?id=9 returns a response which has status code 200'
+I, [2024-12-03T01:07:08.293510 #1423119]  INFO -- : Sending GET request to path: "/artist/specific?id=9" with headers: {"CONTENT_TYPE"=>"application/json; charset=utf-8", "HTTP_X_PACT_ORIGINAL_HEADER_NAMES"=>"Content-Type", "X_PACT_PROVIDER_STATES"=>[{"name"=>"Match the response body"}]}, see debug logs for body
+D, [2024-12-03T01:07:08.293540 #1423119] DEBUG -- : body :
+I, [2024-12-03T01:07:08.301850 #1423119]  INFO -- : Received response with status: 500, headers: {"Content-Length"=>"0", "Date"=>"Tue, 03 Dec 2024 04:07:08 GMT"}, see debug logs for body
+D, [2024-12-03T01:07:08.301908 #1423119] DEBUG -- : body: 
+W, [2024-12-03T01:07:08.304414 #1423119]  WARN -- : No content type found, performing text diff on body
+I, [2024-12-03T01:07:08.305901 #1423119]  INFO -- : Running example 'Verifying a pact between Sample consumer and Sample provider Given Error message A GET invalid request with GET /artist/specific?id=9999 returns a response which has status code 404'
+I, [2024-12-03T01:07:08.306040 #1423119]  INFO -- : Sending GET request to path: "/artist/specific?id=9999" with headers: {"CONTENT_TYPE"=>"application/json; charset=utf-8", "HTTP_X_PACT_ORIGINAL_HEADER_NAMES"=>"Content-Type", "X_PACT_PROVIDER_STATES"=>[{"name"=>"Error message"}]}, see debug logs for body
+D, [2024-12-03T01:07:08.306058 #1423119] DEBUG -- : body :
+I, [2024-12-03T01:07:08.309043 #1423119]  INFO -- : Received response with status: 500, headers: {"Content-Length"=>"0", "Date"=>"Tue, 03 Dec 2024 04:07:08 GMT"}, see debug logs for body
+D, [2024-12-03T01:07:08.309096 #1423119] DEBUG -- : body: 
+W, [2024-12-03T01:07:08.309518 #1423119]  WARN -- : No content type found, performing text diff on body

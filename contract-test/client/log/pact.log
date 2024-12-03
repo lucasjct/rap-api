@@ -1,0 +1,203 @@
+I, [2024-12-02T15:57:43.224145 #941666]  INFO -- : Registered expected interaction GET /artist/specific?id=9
+D, [2024-12-02T15:57:43.224789 #941666] DEBUG -- : {
+  "description": "A get request",
+  "providerState": "Match the response body",
+  "request": {
+    "method": "GET",
+    "path": {
+      "json_class": "Pact::SomethingLike",
+      "contents": "/artist/specific"
+    },
+    "query": {
+      "id": [
+        {
+          "json_class": "Pact::Term",
+          "data": {
+            "generate": "9",
+            "matcher": {
+              "json_class": "Regexp",
+              "o": 0,
+              "s": "[0-9]+"
+            }
+          }
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "application/json; charset=utf-8",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "application\\/json(; charset=utf-8)?"
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "application/json; charset=utf-8",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "application\\/json"
+          }
+        }
+      }
+    },
+    "body": {
+      "ID": 0,
+      "CreatedAt": "0001-01-01T00:00:00Z",
+      "UpdatedAt": "0001-01-01T00:00:00Z",
+      "DeletedAt": null,
+      "name": "Racionais MC's",
+      "album": "Sobrevivendo no Inferno",
+      "released": "1997-12-20",
+      "country": "Brazil"
+    }
+  },
+  "metadata": null
+}
+I, [2024-12-02T15:57:43.225683 #941666]  INFO -- : Received request GET /artist/specific?id=9
+D, [2024-12-02T15:57:43.225767 #941666] DEBUG -- : {
+  "path": "/artist/specific",
+  "query": "id=9",
+  "method": "get",
+  "headers": {
+    "Content-Type": "application/json",
+    "Host": "localhost:34523",
+    "User-Agent": "Go-http-client/1.1",
+    "Accept-Encoding": "gzip"
+  }
+}
+I, [2024-12-02T15:57:43.226157 #941666]  INFO -- : Found matching response for GET /artist/specific?id=9
+D, [2024-12-02T15:57:43.226214 #941666] DEBUG -- : {
+  "status": 200,
+  "headers": {
+    "Content-Type": {
+      "json_class": "Pact::Term",
+      "data": {
+        "generate": "application/json; charset=utf-8",
+        "matcher": {
+          "json_class": "Regexp",
+          "o": 0,
+          "s": "application\\/json"
+        }
+      }
+    }
+  },
+  "body": {
+    "ID": 0,
+    "CreatedAt": "0001-01-01T00:00:00Z",
+    "UpdatedAt": "0001-01-01T00:00:00Z",
+    "DeletedAt": null,
+    "name": "Racionais MC's",
+    "album": "Sobrevivendo no Inferno",
+    "released": "1997-12-20",
+    "country": "Brazil"
+  }
+}
+I, [2024-12-02T15:57:43.227731 #941666]  INFO -- : Verifying - interactions matched
+I, [2024-12-02T15:57:43.228539 #941666]  INFO -- : Cleared interactions
+I, [2024-12-02T15:57:43.271989 #941666]  INFO -- : Registered expected interaction GET /artist/specific?id=9999
+D, [2024-12-02T15:57:43.272451 #941666] DEBUG -- : {
+  "description": "A GET invalid request",
+  "providerState": "Error message",
+  "request": {
+    "method": "GET",
+    "path": {
+      "json_class": "Pact::SomethingLike",
+      "contents": "/artist/specific"
+    },
+    "query": {
+      "id": [
+        {
+          "json_class": "Pact::Term",
+          "data": {
+            "generate": "9999",
+            "matcher": {
+              "json_class": "Regexp",
+              "o": 0,
+              "s": "[0-9]+"
+            }
+          }
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "application/json; charset=utf-8",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "application\\/json"
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "status": 404,
+    "headers": {
+      "Content-Type": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "application/json; charset=utf-8",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "application\\/json"
+          }
+        }
+      }
+    },
+    "body": {
+      "message": "Requested car is not found"
+    }
+  },
+  "metadata": null
+}
+I, [2024-12-02T15:57:43.314320 #941666]  INFO -- : Received request GET /artist/specific?id=9
+D, [2024-12-02T15:57:43.314505 #941666] DEBUG -- : {
+  "path": "/artist/specific",
+  "query": "id=9",
+  "method": "get",
+  "headers": {
+    "Content-Type": "application/json",
+    "Host": "localhost:34523",
+    "User-Agent": "Go-http-client/1.1",
+    "Accept-Encoding": "gzip"
+  }
+}
+I, [2024-12-02T15:57:43.314800 #941666]  INFO -- : Found matching response for GET /artist/specific?id=9999
+D, [2024-12-02T15:57:43.314903 #941666] DEBUG -- : {
+  "status": 404,
+  "headers": {
+    "Content-Type": {
+      "json_class": "Pact::Term",
+      "data": {
+        "generate": "application/json; charset=utf-8",
+        "matcher": {
+          "json_class": "Regexp",
+          "o": 0,
+          "s": "application\\/json"
+        }
+      }
+    }
+  },
+  "body": {
+    "message": "Requested car is not found"
+  }
+}
+I, [2024-12-02T15:57:43.316257 #941666]  INFO -- : Verifying - interactions matched
+I, [2024-12-02T15:57:43.317293 #941666]  INFO -- : Cleared interactions
+I, [2024-12-02T15:57:43.359984 #941666]  INFO -- : Writing pact for Sample provider to /home/lucasjct/workspace/rap-api/contract-test/client/pacts/sample_consumer-sample_provider.json
